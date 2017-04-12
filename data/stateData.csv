@@ -1,4 +1,4 @@
-id,state,code_local,Percentage_unemployment_population(2010),Percentage_college_graduate(2010),Percentage_poverty_population(2010),Percentage_foreignborn_population(2010),Percentage_hightechnology_employment(2010)
+id,name,code_local,Percentage_unemployment_population(2010),Percentage_college_graduate(2010),Percentage_poverty_population(2010),Percentage_foreignborn_population(2010),Percentage_hightechnology_employment(2010)
 1,Alabama,US01,9.5,21.9,19,3.5,10.52
 2,Alaska,US02,8,27.9,9.9,7.9,14.45
 3,Arizona,US04,10,25.9,17.4,13.4,11.57

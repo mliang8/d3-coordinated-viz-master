@@ -63,34 +63,34 @@
 		//the following vaaribales each append a line of text with the tspan element into the the previous rectangle created
 		var intro=titleText.append("text")
 			.attr("x",80)
-			.attr("y",90)
+			.attr("y",93)
 			.attr("class","intro")
-			.text("This visualization tool, including a choropleth map and a dynamic bar graph, dispalys a set of five important measurements of the economic and sociological conditions in United States in"); 
+			.text("This visualization tool, including a choropleth map and a dynamic bar graph, dispalys a set of five important measurements to depict the economic and sociological conditions in the US"); 
 				//in United States in the year of 2010. These measurements or variables are the percentage of unemployed population by state, the percentage of college graduate by state, the percentage of population in poverty by state, the percenatge of foreign-born population and the percentage of higntech employment by state. You could select different variable to visualize on map and compare the exact measurements across state on bar graph. This tool ultimately reveals some possiablecorrelations existing among these variables in each state, such as the correlation between the state with high percentage of college gradute and the percentage of hightechnology");
 	
 		var intro1=intro.append("tspan")
 			.attr("class","intro1")
 			.attr("x",80)
-			.attr("y",115)
-			.text("the year of 2010. These measurements or variables are the percentage of unemployed population by state, the percentage of college by state, the percentage of population in poverty by  ");
+			.attr("y",118)
+			.text("in the year of 2010. These measurements or variables are the percentage of unemployed population by state, the percentage of college gradutaes by state, the poverty rate");
 
 		var intro2=intro.append("tspan")
 			.attr("class","intro2")
 			.attr("x",80)
-			.attr("y",140)
-			.text("state, the percenatge of foreign-born population and the percentage of higntech employment by state. You could select different variable to visualize on map and compare the exact");
+			.attr("y",143)
+			.text("by state, the percenatge of foreign-born population and the percentage of higntech employment by state. You could select different variable to visualize on map and compare the exact");
 	
 		var intro3=intro.append("tspan")
 			.attr("class","intro3")
 			.attr("x",80)
-			.attr("y",165)
-			.text("easurements across state on bar graph. This tool ultimately reveals some possiable correlations existing among these variables in each state, such as the correlation between the state ");
+			.attr("y",168)
+			.text("easurements across state on bar graph. This tool ultimately reveals some possiable correlations existing among these variables in each state, such as the state with higher percentage");
 	
 		var intro4=intro.append("tspan")
 			.attr("class","intro4")
 			.attr("x",80)
-			.attr("y",190)
-			.text("with high percentage of college gradute and the percentage of high-technology employment.");
+			.attr("y",193)
+			.text("of college gradutes tend to have higher percentage of high-technology employment, however, these are not causal relations.");
 	};
 
 	//set up choropleth map with a function 
@@ -130,9 +130,9 @@
 
 	    //a callback function with the loaded data from above 
 		function callback(error, csvData, countries, state){
-			console.log(error); //if there is any error
-			console.log(csvData); //attribute data
-			console.log(countries);
+			//console.log(error); //if there is any error
+			//console.log(csvData); //attribute data
+			//console.log(countries);
 			//console.log(state);
 
 			//translate the topojson data back to geojson data within DOM with the obejcts within the data that we want to convert
@@ -140,7 +140,7 @@
 			var	usStates=topojson.feature(state,state.objects.ne_50m_admin_1_states_provinces_lakes).features;
 
 			//examine the resulting geojson
-			console.log(usStates);
+			//console.log(usStates);
 
 			//join csv data to geojson enumeration units
 			usStates=joinData(usStates,csvData);
@@ -157,7 +157,7 @@
 			//set coordinated visualization to the map
 			setChart(csvData,colorScale);
 
-			//setLegend(colorScale);
+			sourceInfo();
 
 			//create a dropdown menu for attribute selection
 			createDropdown(csvData);
@@ -224,7 +224,7 @@
 
         //this appends a desc elemnt to attach the original styles of the enumeration units for dehighlighting
         var desc = regions.append("desc")
-        	.text('{"stroke": "#d6eaf8", "stroke-width": "0.5px"}');
+        	.text('{"stroke": "#e8eff4", "stroke-width": "1px"}');
 	};
 
 	//function to create color scale generator 
@@ -327,6 +327,7 @@
 	        .data(csvData)
 	        .enter()
 	        .append("rect")
+
 	        //this function sorts the bars based on the max to min order of the attribute values
 	        .sort(function(a, b){
 	            return b[expressed]-a[expressed]
@@ -336,15 +337,16 @@
 
 	            return "bar " +  d.code_local;
 	        })
-	        .attr("name",function(d){
+	        /*.attr("name",function(d){
 	        	return d.state;
-	        })
+	        })*/
 	        //devide the innner chart frame width evenly accoridng to the number of attributes 
 	        .attr("width", chartInnerWidth / csvData.length - 1)
 	        //these are a series of listening events taht listen to the mouse actions and response by calling corresponidng fucntions
 	        .on("mouseover", highlight)
 	        .on("mouseout", dehighlight)
 	        .on("mousemove",moveLabel);
+
 
 	    //this appends a desc elemnt to attach the original styles of the enumeration units for dehighlighting
 	    var desc = bars.append("desc")
@@ -380,7 +382,54 @@
     	updateChart(bars, csvData.length, colorScale);
 
 	};
+	//function to create a new svg at the bottom to include some text explaining the data sources
+	function sourceInfo(){
 
+		//create a second svg elemnt to hold the bar chart
+		var bottom = d3.select("#container")
+			.append("svg")
+			.attr("width",1440)
+			.attr("height",200)
+			.attr("class","source")
+			.style("background","#d6eaf8");
+
+
+		var  title1 =bottom.append ("text")
+			.attr("x", 80)
+			.attr("y", 50)
+			.attr("class","title1")
+			.text ("Data sources");
+
+		var text1=bottom.append ("text")
+			.attr("x", 80)
+			.attr("y", 80)
+			.attr("class","text1")
+			.text ("- Percenatge of college gradutes by state data is complied from the US Department of Education ");
+
+		var text2=bottom.append ("text")
+			.attr("x", 80)
+			.attr("y", 110)
+			.attr("class","text2")
+			.text("- Percenatge of population in poverty by state data and the percentage of foreign-born population by state data are complied from the US Census Bureau");
+	
+		var text3=bottom.append ("text")
+			.attr("x", 80)
+			.attr("y", 130)
+			.attr("class","text3")
+			.text(  " (population in poverty are people whose income fell below the poverty guidline of the the year; this guideline is also set by the Federal Register)");
+
+		var text4=bottom.append ("text")
+			.attr("x", 80)
+			.attr("y", 160)
+			.attr("class","text4")
+			.text("- Percenatge of hign-technology employment data by state is compiled from the National Science Fundation ");
+
+		var text5=bottom.append ("text")
+			.attr("x", 80)
+			.attr("y", 190)
+			.attr("class","text5")
+			.text("- Percentage of unemployment (unemployment rate of age 16 or above) by state is compiled from the Bureau of Labor Statistics website.")
+	};
 	//function to create a dropdown menu for attribute selection
 	function createDropdown(csvData){
 	    //add select element
@@ -498,7 +547,7 @@
 	    //creating a selected block that restyles the stroke and stroke-width styles
 	    var selected = d3.selectAll("." + props.code_local)
 	        .style("stroke", function(){
-	        	console.log(getStyle(this, "stroke"));
+	        	//console.log(getStyle(this, "stroke"));
 	            return getStyle(this, "stroke")
 	        })
 	        .style("stroke-width", function(){
@@ -536,7 +585,7 @@
 		var regionName = infolabel.append("div")
 		    .attr("class", "labelname")
 		    .html(props.name);
-		console.log(props.name);
+		//console.log(props.name);
 	};
 
 	//function to move info label with mouse

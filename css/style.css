@@ -2,24 +2,26 @@
 /*these two following blocks could be used to style the background countries of the
  NorthAmerica,but not used here for the choropleth map*/
 
-/*aligning the two svgs conatining map and chart*/
+
+/* add background color to conatiner*/
 #container2{
 	background-color:#d6eaf8;
 	width: 1440px;
 }
-
+/* add background color to conatiner*/
 #container{
 	background-color:#d6eaf8;
 	width: 1440px;
-	height: 860px;
+	height: 820px;
 }
-
+/*stylize the page title*/
 .pageTitle{
 	font-size: 2em;
 	font-weight: bold;
 	font-family: sans-serif;
 	fill:#4d5c66;
 }
+/*stylize the title background box*/
 .titleBackground{
 	fill: none;
 
@@ -96,13 +98,13 @@
 
 .state {
 	fill:none;
-	stroke: #d6eaf8;
+	stroke: #e8eff4;
 	stroke-opacity:1;
-	stroke-width:px;
+	stroke-width:1px;
 	stroke-cap:round;
 
 }
-
+/*stylize the intro paragraph*/
 .intro {
 	font-size: 1em;
 	font-family: sans-serif;
@@ -124,26 +126,11 @@
     box-shadow: 2px 2px 4px #9ea9b2;
 }
 
-.legend {
-	position: absolute;
-	top:513px;
-	left:740px;
-	z-index: 10;
-	height: 200px;
-	width:50px;
-	fill:white;
-	opacity: 0.7;
-
-}
-.box {
-	z-index: 11;
-	background-color:red;
-}
-
+/*stylize the dropdown text options*/
 option {
     font-weight: normal;
 }
-
+/*stylize the info retriving box and the content within*/
 .infolabel {
     position: absolute;
     height: 50px;
@@ -162,5 +149,40 @@ option {
     display: inline-block;
     line-height: 1em;
 }
+
+.title1 {
+	font-size: 1.2em;
+	font-weight: bold;
+	font-family: times;
+	fill:#4d5c66;
+}
+
+.text1 {
+	font-size: 1.05em;
+	fill:#4d5c66;
+
+}
+.text2 {
+	font-size: 1.05em;
+	fill:#4d5c66;
+
+}
+.text3 {
+	font-size: 1.05em;
+	fill:#4d5c66;
+
+}
+.text4 {
+	font-size: 1.05em;
+	fill:#4d5c66;
+
+}
+.text5 {
+	font-size: 1.05em;
+	fill:#4d5c66;
+
+}
+
+
 
 
