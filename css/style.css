@@ -126,15 +126,15 @@
 
 p {
 	font-size: 1.1em;
-	font-family: sans-serif;
-	color: #485760;
-	line-height: 1.3em;
+	font-family: Arial;
+	color: #5c6d77;
+	line-height: 1.35em;
 }
 
 /*Styling the dropdown*/
 .dropdown {
     position:absolute;
-    top:280px;
+    top:285px;
     left:70px;
     z-index: 10;
     font-family: sans-serif;
