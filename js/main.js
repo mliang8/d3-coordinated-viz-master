@@ -14,7 +14,7 @@
 
 	//psudo global variables 
 	//store all the variables for data join to an array
-	var attrArray =["Percentage_unemployment_population(2010)","Percentage_college_graduate(2010)","Percentage_poverty_population(2010)","Percentage_foreignborn_population(2010)","Percentage_hightechnology_employment(2010)"];
+	var attrArray =["Percentage unemployment population(2010)","Percentage college graduate(2010)","Percentage poverty population(2010)","Percentage foreign-born population(2010)","Percentage high-technology employment(2010)"];
 	var expressed = attrArray[0]; //initial attribute
 
 	//chart frame dimensions in the global scale
@@ -37,61 +37,61 @@
 	window.onload=setMap();
 
 	//funciton to set up a new container including the page title and the introduction text
-	function setTitle(){
-		//creating a new container by id before the container containing the graphics
-		var titleText=d3.select("#container2")
-			.append("svg")
-			.attr("class","title")
-			.attr("width",1440)
-			.attr("height",200)
-			.style("background","#d6eaf8");
+	// function setTitle(){
+	// 	//creating a new container by id before the container containing the graphics
+	// 	var titleText=d3.select("#container2")
+	// 		.append("svg")
+	// 		.attr("class","title")
+	// 		.attr("height",200)
+	// 		.style("background","#d6eaf8");
 
-		//append a rectangle in the svg
-		var titleBackground= titleText.append("rect")
-			.attr("class","titleBackground")
-			.attr("width",1440)
-			.attr("height",200)
-			.attr("transform",translate);
+	// 	//append a rectangle in the svg
+	// 	var titleBackground= titleText.append("rect")
+	// 		.attr("class","titleBackground")
+	// 		.attr("width",1440)
+	// 		.attr("height",200)
+	// 		.attr("transform",translate);
 
-		//append text to the rectangle
-		var  pageTitle =titleText.append ("text")
-			.attr("x", 80)
-			.attr("y", 50)
-			.attr("class","pageTitle")
-			.text ("Visualization of Five Socioeconomic Factors in 2010 by State");
-
-		//the following vaaribales each append a line of text with the tspan element into the the previous rectangle created
-		var intro=titleText.append("text")
-			.attr("x",80)
-			.attr("y",93)
-			.attr("class","intro")
-			.text("This visualization tool, including a choropleth map and a dynamic bar graph, dispalys a set of five important measurements to depict the economic and sociological conditions in the US"); 
-				//in United States in the year of 2010. These measurements or variables are the percentage of unemployed population by state, the percentage of college graduate by state, the percentage of population in poverty by state, the percenatge of foreign-born population and the percentage of higntech employment by state. You could select different variable to visualize on map and compare the exact measurements across state on bar graph. This tool ultimately reveals some possiablecorrelations existing among these variables in each state, such as the correlation between the state with high percentage of college gradute and the percentage of hightechnology");
+	// 	//append text to the rectangle
+	// 	var  pageTitle =titleText.append ("text")
+	// 		.attr("x", 80)
+	// 		.attr("y",50)
+	// 		.attr("class","pageTitle")
+	// 		.text ("Visualization of Five Socioeconomic Factors in 2010 by State");
 	
-		var intro1=intro.append("tspan")
-			.attr("class","intro1")
-			.attr("x",80)
-			.attr("y",118)
-			.text("in the year of 2010. These measurements or variables are the percentage of unemployed population by state, the percentage of college gradutaes by state, the poverty rate");
 
-		var intro2=intro.append("tspan")
-			.attr("class","intro2")
-			.attr("x",80)
-			.attr("y",143)
-			.text("by state, the percenatge of foreign-born population and the percentage of higntech employment by state. You could select different variable to visualize on map and compare the exact");
+	// 	//the following vaaribales each append a line of text with the tspan element into the the previous rectangle created
+	// 	var intro=titleText.append("text")
+	// 		.attr("x",80)
+	// 		.attr("y",93)
+	// 		.attr("class","intro")
+	// 		.text("This visualization tool, including a choropleth map and a dynamic bar graph, dispalys a set of five important measurements to depict the economic and sociological conditions in the US"); 
+	// 			//in United States in the year of 2010. These measurements or variables are the percentage of unemployed population by state, the percentage of college graduate by state, the percentage of population in poverty by state, the percenatge of foreign-born population and the percentage of higntech employment by state. You could select different variable to visualize on map and compare the exact measurements across state on bar graph. This tool ultimately reveals some possiablecorrelations existing among these variables in each state, such as the correlation between the state with high percentage of college gradute and the percentage of hightechnology");
 	
-		var intro3=intro.append("tspan")
-			.attr("class","intro3")
-			.attr("x",80)
-			.attr("y",168)
-			.text("easurements across state on bar graph. This tool ultimately reveals some possiable correlations existing among these variables in each state, such as the state with higher percentage");
+	// 	var intro1=intro.append("tspan")
+	// 		.attr("class","intro1")
+	// 		.attr("x",80)
+	// 		.attr("y",118)
+	// 		.text("in the year of 2010. These measurements or variables are the percentage of unemployed population by state, the percentage of college gradutaes by state, the poverty rate");
+
+	// 	var intro2=intro.append("tspan")
+	// 		.attr("class","intro2")
+	// 		.attr("x",80)
+	// 		.attr("y",143)
+	// 		.text("by state, the percenatge of foreign-born population and the percentage of higntech employment by state. You could select different variable to visualize on map and compare the exact");
 	
-		var intro4=intro.append("tspan")
-			.attr("class","intro4")
-			.attr("x",80)
-			.attr("y",193)
-			.text("of college gradutes tend to have higher percentage of high-technology employment, however, these are not causal relations.");
-	};
+	// 	var intro3=intro.append("tspan")
+	// 		.attr("class","intro3")
+	// 		.attr("x",80)
+	// 		.attr("y",168)
+	// 		.text("easurements across state on bar graph. This tool ultimately reveals some possiable correlations existing among these variables in each state, such as the state with higher percentage");
+	
+	// 	var intro4=intro.append("tspan")
+	// 		.attr("class","intro4")
+	// 		.attr("x",80)
+	// 		.attr("y",193)
+	// 		.text("of college gradutes tend to have higher percentage of high-technology employment, however, these are not causal relations.");
+	// };
 
 	//set up choropleth map with a function 
 	function setMap(){
@@ -149,7 +149,7 @@
 			var colorScale=makeColorScale(csvData);
 
 			//call the function to set up the page title and the into text
-			setTitle();
+			//setTitle();
 
 			//add enumeration units to the map
 			setEnumerationUnits(usStates, map, path, colorScale);
@@ -388,7 +388,7 @@
 		//create a second svg elemnt to hold the bar chart
 		var bottom = d3.select("#container")
 			.append("svg")
-			.attr("width",1440)
+			// .attr("width",window.innerWidth)
 			.attr("height",200)
 			.attr("class","source")
 			.style("background","#d6eaf8");
@@ -520,7 +520,7 @@
 	        });
         //at the bottom of updateChart()...add text to chart title
     	var chartTitle = d3.select(".chartTitle")
-        	.text("Percentage of " + expressed.split("_")[1] + " "+ expressed.split("_")[2].split("(")[0]+" in 2010");
+        	.text("Percentage of " + expressed.split(" ")[1] + " "+ expressed.split(" ")[2].split("(")[0]+" in 2010");
 	};
 
 	//function to highlight enumeration units and bars
@@ -572,7 +572,7 @@
 	function setLabel(props){
 		//label content
 		var labelAttribute = "<h1>" + props[expressed] +
-		    "</h1><b>" + "% of "+ expressed.split("_")[1] +" "+ expressed.split("_")[2].split("(")[0]+ "</b>";
+		    "</h1><b>" + "% of "+ expressed.split(" ")[1] +" "+ expressed.split(" ")[2].split("(")[0]+ "</b>";
 
 		//create info label div
 		var infolabel = d3.select("#container")

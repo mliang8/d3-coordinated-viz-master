@@ -1,4 +1,5 @@
 
+
 /*these two following blocks could be used to style the background countries of the
  NorthAmerica,but not used here for the choropleth map*/
 
@@ -6,20 +7,31 @@
 /* add background color to conatiner*/
 #container2{
 	background-color:#d6eaf8;
-	width: 1440px;
+	min-width: 100%;
+	
 }
 /* add background color to conatiner*/
 #container{
 	background-color:#d6eaf8;
-	width: 1440px;
+	min-width: 100%;
 	height: 820px;
+}
+
+.source {
+	min-width: 100%;
+}
+
+.title {
+	min-width: 100%;
 }
 /*stylize the page title*/
 .pageTitle{
-	font-size: 2em;
+	padding-top: 1.5%;
+	font-size: 2.5em;
 	font-weight: bold;
 	font-family: sans-serif;
-	fill:#4d5c66;
+	color:#4d5c66;
+
 }
 /*stylize the title background box*/
 .titleBackground{
@@ -42,7 +54,7 @@
 	border-width: 5px;
 	background-color: none;
 	margin-top: 45px;
-	margin-right: 30px;
+	margin-right:0px;
 	position: relative;
 	
 }
@@ -106,22 +118,31 @@
 }
 /*stylize the intro paragraph*/
 .intro {
-	font-size: 1em;
+	padding-left: 3%;
+	padding-right: 3%;
+	padding-top: 1%;
+
+}
+
+p {
+	font-size: 1.1em;
 	font-family: sans-serif;
-	fill:#4d5c66;
-	z-index: 10;
+	color: #485760;
+	line-height: 1.3em;
 }
 
 /*Styling the dropdown*/
 .dropdown {
-    position: absolute;
-    top: 235px;
-    left: 600px;
+    position:absolute;
+    top:280px;
+    left:70px;
     z-index: 10;
     font-family: sans-serif;
     font-size: 1em;
     font-weight: bold;
+
     padding: 3px;
+    margin-left: 15%;
     border: 2px solid #9ea9b2;
     box-shadow: 2px 2px 4px #9ea9b2;
 }
@@ -153,34 +174,60 @@ option {
 .title1 {
 	font-size: 1.2em;
 	font-weight: bold;
-	font-family: times;
+	font-family: Tahoma;
 	fill:#4d5c66;
 }
 
 .text1 {
-	font-size: 1.05em;
+	font-size: 1.03em;
+	font-family: Tahoma;
 	fill:#4d5c66;
 
 }
 .text2 {
-	font-size: 1.05em;
+	font-size: 1.03em;
+	font-family: Tahoma;
 	fill:#4d5c66;
 
 }
 .text3 {
-	font-size: 1.05em;
+	font-size: 1.03em;
+	font-family: Tahoma;
 	fill:#4d5c66;
 
 }
 .text4 {
-	font-size: 1.05em;
+	font-size: 1.03em;
+	font-family: Tahoma;
 	fill:#4d5c66;
 
 }
 .text5 {
-	font-size: 1.05em;
+	font-size: 1.03em;
+	font-family: Tahoma;
 	fill:#4d5c66;
 
+}
+
+#creditline {
+	color: black;
+	height: 50px;
+	min-width: 100%;
+	background-color: #d6eaf8;
+
+}
+.credit {
+	float: right;
+}
+.credit p{
+	text-align: right;
+	color:#1f4667;
+	font-size: 1em;
+	line-height: 0.3;
+}
+
+.credit a{
+	color: #445b72;
 }
 
 
